@@ -1,0 +1,45 @@
+import java.util.Scanner;
+import java.lang.String;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        System.out.println("Kalyshka D.M.");
+        Scanner in = new Scanner(System.in);
+
+        System.out.print("Enter the length of the word: ");
+        int len = in.nextInt();
+        System.out.print("Enter a new string: ");
+        String str2 = in.next();
+
+        String str1 = "a   ab  abc      abcd abcd    abc       ab a ";
+        System.out.println("\n" + str1 + "\n////////////////////////////////////////");
+
+
+        //////////////////////////////////
+        String [] mass = new String[str1.length()];
+        for(int i=0; i<str1.length(); i++)mass[i] = "";
+
+        int word = 0;
+        char[] chars = str1.toCharArray();
+
+        for(int i=0; i<str1.length(); ){
+            while(i < str1.length() && chars[i] != ' '){mass[word] += chars[i]; i++;}
+            word++;
+            while(i < str1.length() && chars[i] == ' ')i++;
+        }
+
+        for(int i=0; i<word; i++){
+            if(mass[i].length() == len)mass[i] = str2;
+        }
+        
+        int word1 = 0;
+        for(int i=0; i<str1.length(); ){
+            while(i < str1.length() && chars[i] != ' '){mass[word] += chars[i]; i++;}
+            System.out.print(mass[word1]); word1++;
+            while(i < str1.length() && chars[i] == ' '){i++; System.out.print(' ');}
+        }
+        System.out.println("\n");
+    }
+}
